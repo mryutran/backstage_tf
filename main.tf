@@ -28,3 +28,11 @@ module "aws_ssm" {
   access_key_id        = var.access_key_id
   secret_access_key    = var.secret_access_key
 }
+
+module "aws_alb" {
+  source             = "./modules/alb"
+  project            = var.project
+  vpc_id             = module.aws_vpc.vpc_id
+  subnet_ids         = values(module.aws_vpc.public_subnets)[*].id
+  depends_on         = [module.aws_vpc]
+}
