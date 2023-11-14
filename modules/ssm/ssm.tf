@@ -10,7 +10,7 @@ resource "aws_ssm_parameter" "postgres_host" {
 
 resource "aws_ssm_parameter" "postgres_user" {
   name  = "POSTGRES_USER"
-  type  = "String"
+  type  = "SecureString"
   value = var.postgres_user
 
   lifecycle {
@@ -20,7 +20,7 @@ resource "aws_ssm_parameter" "postgres_user" {
 
 resource "aws_ssm_parameter" "postgres_password" {
   name  = "POSTGRES_PASSWORD"
-  type  = "String"
+  type  = "SecureString"
   value = var.postgres_password
 
   lifecycle {
@@ -30,7 +30,7 @@ resource "aws_ssm_parameter" "postgres_password" {
 
 resource "aws_ssm_parameter" "github_token" {
   name  = "GITHUB_TOKEN"
-  type  = "String"
+  type  = "SecureString"
   value = var.github_token
 
   lifecycle {
@@ -40,7 +40,7 @@ resource "aws_ssm_parameter" "github_token" {
 
 resource "aws_ssm_parameter" "github_client_id" {
   name  = "AUTH_GITHUB_CLIENT_ID"
-  type  = "String"
+  type  = "SecureString"
   value = var.github_client_id
 
   lifecycle {
@@ -50,7 +50,7 @@ resource "aws_ssm_parameter" "github_client_id" {
 
 resource "aws_ssm_parameter" "github_client_secret" {
   name  = "AUTH_GITHUB_CLIENT_SECRET"
-  type  = "String"
+  type  = "SecureString"
   value = var.github_client_secret
 
   lifecycle {
@@ -60,7 +60,7 @@ resource "aws_ssm_parameter" "github_client_secret" {
 
 resource "aws_ssm_parameter" "access_key_id" {
   name  = "ACCESS_KEY_ID"
-  type  = "String"
+  type  = "SecureString"
   value = var.access_key_id
 
   lifecycle {
@@ -70,7 +70,7 @@ resource "aws_ssm_parameter" "access_key_id" {
 
 resource "aws_ssm_parameter" "secret_access_key" {
   name  = "SECRET_ACCESS_KEY"
-  type  = "String"
+  type  = "SecureString"
   value = var.secret_access_key
 
   lifecycle {
