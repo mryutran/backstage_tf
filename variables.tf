@@ -51,3 +51,12 @@ variable "secret_access_key" {
 variable "rds_instance_endpoint" {
   type = string
 }
+
+variable "docker_image_tag" {
+  type = string
+}
+
+variable "default_region" {
+  type = string
+  default = "us-east-1"
+}

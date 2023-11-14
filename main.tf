@@ -69,3 +69,27 @@ resource "aws_ecr_repository" "registry" {
     scan_on_push = false
   }
 }
+
+module "aws_ecs" {
+  source                   = "./modules/ecs"
+  project                  = var.project
+  docker_image_url         = aws_ecr_repository.registry.repository_url
+  docker_image_tag         = var.docker_image_tag
+  default_region           = var.default_region
+  vpc_id                   = module.aws_vpc.vpc_id
+  security_group_ids       = [module.aws_alb.default_security_group_id]
+  subnet_ids               = values(module.aws_vpc.public_subnets)[*].id
+  execution_role_arn       = module.aws_iam.ecs_role_arn
+  postgres_host_arn        = module.aws_ssm.postgres_host_arn
+  postgres_user_arn        = module.aws_ssm.postgres_user_arn
+  postgres_password_arn    = module.aws_ssm.postgres_password_arn
+  github_token_arn         = module.aws_ssm.github_token_arn
+  github_client_id_arn     = module.aws_ssm.github_client_id_arn
+  github_client_secret_arn = module.aws_ssm.github_client_secret_arn
+  tech_docs_bucket_name    = module.aws_s3.tech_docs_bucket_name
+  access_key_id_arn        = module.aws_ssm.access_key_id_arn
+  secret_access_key_arn    = module.aws_ssm.secret_access_key_arn
+  target_group_arn         = module.aws_alb.target_group_arn
+  alb_dns_name             = module.aws_alb.alb_dns_name
+  depends_on               = [module.aws_vpc, module.aws_alb, module.aws_s3, module.aws_ssm, module.aws_iam]
+}
