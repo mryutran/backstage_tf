@@ -15,6 +15,16 @@ resource "aws_subnet" "public_subnets" {
   }
 }
 
+resource "aws_subnet" "private_subnets" {
+  for_each = toset(var.private_subnets)
+  vpc_id = aws_vpc.backstage_vpc.id
+  cidr_block = each.value
+  tags = {
+    Name = "${var.project}-private-subnet-${each.key}"
+  }
+}
+
+
 resource "aws_internet_gateway" "backstage_igw" {
   vpc_id = aws_vpc.backstage_vpc.id
   tags = {
