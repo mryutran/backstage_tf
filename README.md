@@ -17,3 +17,5 @@ Push Docker Image to ECR:
 docker push 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.0
 
 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.0
+
+My Backstage: http://backstage-alb-1540112729.us-east-1.elb.amazonaws.com/catalog
