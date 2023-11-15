@@ -55,7 +55,7 @@ scaffolder:
 
 catalog:
   rules:
-    - allow: [Component, System, API, Group, User, Resource, Location]
+    - allow: [Component, System, API, Group, User, Resource, Location, Template]
   locations:
     # Backstage example components
     - type: url
