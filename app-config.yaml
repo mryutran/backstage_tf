@@ -78,6 +78,7 @@ catalog:
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
 
     # Backstage example templates
+    # Backstage example templates
     - type: url
       target: https://github.com/spotify/cookiecutter-golang/blob/master/template.yaml
       rules:
@@ -86,19 +87,19 @@ catalog:
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/create-react-app/template.yaml
       rules:
         - allow: [Template]
-     - type: url
+    - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/docs-template/template.yaml
       rules:
         - allow: [Template]
-     - type: url
+    - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/pull-request/template.yaml
       rules:
         - allow: [Template]
-     - type: url
+    - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/react-ssr-template/template.yaml
       rules:
         - allow: [Template]
-     - type: url
+    - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/springboot-grpc-template/template.yaml
       rules:
-        - allow: [Template]    
+        - allow: [Template]
