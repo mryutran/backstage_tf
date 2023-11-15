@@ -6,15 +6,15 @@ Export your aws credentials.
 
 Build and Tag Docker Image:
 Build docker image: docker build . -f packages/backend/Dockerfile --tag backstage --no-cache
-docker tag backstage 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.2
+docker tag backstage 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.3
 
 Authenticate Docker to the ECR Registry:
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 631669505728.dkr.ecr.us-east-1.amazonaws.com
 
 Push Docker Image to ECR:
-docker push 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.2
+docker push 631669505728.dkr.ecr.us-east-1.amazonaws.com/backstage-image:1.0.3
 
-Update dev.tfvars: docker_image_tag    = "1.0.2" 
+Update dev.tfvars: docker_image_tag    = "1.0.3" 
 
 Run terraform init: terraform init -var-file=vars/dev.tfvars -backend-config=vars/dev.backend.tfvars
 
